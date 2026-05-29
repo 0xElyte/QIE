@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --qia-bg: #0a0a0f;
+  --qia-accent: #00ff88;
+  --qia-surface: #12121a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--qia-bg);
+  color: #e0e0e0;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Cyberpunk grid background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--qia-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 136, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 136, 0.4);
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3), 0 0 40px rgba(0, 255, 136, 0.1);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Card base style */
+.qia-card {
+  @apply bg-qia-card border border-qia-border rounded-xl p-4;
+}
+
+/* Button base */
+.qia-btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 active:scale-95;
+}
+
+.qia-btn-primary {
+  @apply qia-btn bg-qia-accent text-black hover:bg-qia-accent-dim glow-green;
+}
+
+.qia-btn-secondary {
+  @apply qia-btn bg-qia-surface border border-qia-border text-qia-text-primary hover:border-qia-accent;
+}
+
+.qia-btn-danger {
+  @apply qia-btn bg-qia-danger/20 border border-qia-danger text-qia-danger hover:bg-qia-danger/30;
+}
+
+/* Input */
+.qia-input {
+  @apply w-full bg-qia-surface border border-qia-border rounded-lg px-3 py-2
+         text-qia-text-primary placeholder-qia-text-secondary
+         focus:outline-none focus:border-qia-accent focus:ring-1 focus:ring-qia-accent/30
+         transition-colors;
+}
+
+/* Badge */
+.qia-badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+}
+
+.qia-badge-green {
+  @apply qia-badge bg-qia-accent/10 text-qia-accent border border-qia-accent/20;
+}
+
+.qia-badge-red {
+  @apply qia-badge bg-qia-danger/10 text-qia-danger border border-qia-danger/20;
+}
+
+.qia-badge-yellow {
+  @apply qia-badge bg-qia-warning/10 text-qia-warning border border-qia-warning/20;
+}
+
+.qia-badge-blue {
+  @apply qia-badge bg-qia-info/10 text-qia-info border border-qia-info/20;
+}
