@@ -366,10 +366,9 @@ contract CompetitionLobbyTest is Test {
     // ═══════════════════════════════════════════
 
     function testFuzz_createCompetition(uint256 betAmount, uint256 duration) public {
-        vm.assume(betAmount >= MIN_BET);
-        vm.assume(betAmount <= 1000 ether);
-        vm.assume(duration >= 30);
-        vm.assume(duration <= 180);
+        // Constrain inputs to valid ranges using subtraction + addition pattern
+        betAmount = (betAmount % (100 ether)) + MIN_BET; // Between 1-101 ether
+        duration = (duration % 151) + 30;  // Between 30-180 seconds
 
         vm.deal(playerA, betAmount);
         vm.prank(playerA);
