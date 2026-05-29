@@ -1,6 +1,6 @@
 # 🎯 Q.I.A — QIE Intelligent Agent
 
-> Web-Based Competitive P2E Shooter | QIE Hackathon 2026 Entry
+> Web-Based Competitive P2E Shooter
 
 ## Architecture
 
@@ -36,13 +36,6 @@
 └─────────────────────────────────────────────────────────┘
 ```
 
-## Native QIE — Key Design Decision
-
-All economic interactions use **native QIE** (no custom game token):
-- `payable` functions + `msg.value` for bets
-- `call{value:}` for payouts (pull pattern)
-- Single balance display everywhere
-- 40% less contract code, lower gas, simpler UX
 
 ## Quick Start
 
@@ -183,4 +176,4 @@ QIE/
 
 ## License
 
-MIT — Built for QIE Hackathon 2026
+MIT
